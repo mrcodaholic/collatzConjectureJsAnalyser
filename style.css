@@ -1,0 +1,32 @@
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+
+        th,
+        td {
+            text-align: right;
+            padding: 5px;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        .total_iterations {
+            text-align: left;
+        }
+
+        .head_all_iterations {
+            text-align: left;
+        }
+
+        table {
+            width: max-content;
+        }
+
+        .total_it_td {
+            background-color: rgba(255, 183, 0, 0.458);
+        }
+        body{
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }

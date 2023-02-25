@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Collatz Conjecture Analyzer</title>
+</head>
+
+<body>
+    <h1>Collatz Conjecture Analyzer</h1>
+    <hr/>
+    <br/>
+    <p title="To calculate a single number"><b>Specific</b> :
+    <input title="To calculate a single number" oninput="change_1()" type="number" name="spec" id="spec"></p>
+    <p title="This option lets you select a whole range at once to analyze" ><b>Range Selection </b>:
+    <label for="range_1">From:</label>
+    <input title="The starting value of your Range" oninput="change_2()" type="number" name="range_1" id="range_1">
+    <label for="range_2">To:</label>
+    <input title="The ending value of your Range" oninput="change_2()" type="number" name="range_2" id="range_2">
+    </p>
+    <button title="Click to Calculate the results after selecting a range or specfic number" onclick="calculate()" id="calculate">Calculate</button>
+    <br/>
+    <br/>
+    <hr/>
+    <br/>
+    <select title="Select one of these options after Calculation to color the results tables row in different manners using certain patterns and like-type rows." onchange="analyse()" name="analyse" id="analyse">
+        <option value="method">Select Analysing method</option>
+        <option value="1">Color consecutive 2</option>
+        <option value="2">Color consecutive 3</option>
+        <option value="3">Color consecutive Odd</option>
+        <option value="4">Color consecutive Even</option>
+        <option value="5">Color 1-3-1-x-1-3-1 pattern</option>
+        <option value="6">Color 3 in 1-3-1-x-1-3-1 pattern</option>
+        <option value="7">Color primes</option>
+        <option value="8">Color 1 in 1-3-1-x-1-3-1 pattern</option>
+        <option value="9">Color 1st 1 in 1-3-1-x-1-3-1 pattern</option>
+        <option value="16">Color 2nd 1 in 1-3-1-x-1-3-1 pattern</option>
+        <option value="10">Color 1st 1 which is 2^n in 1-3-1-x-1-3-1 pattern</option>
+        <option value="11">Color 1st 1 which is not 2^n in 1-3-1-x-1-3-1 pattern</option>
+        <option value="12">Color 1st 1 which is not 2^n and divisible by 5 in 1-3-1-x-1-3-1 pattern</option>
+        <option value="13">Color 1st 1 which is not 2^n and divisible by 3 in 1-3-1-x-1-3-1 pattern</option>
+        <option value="14">Color 1 which is not 2^n and divisible by 3 in 1-3-1-x-1-3-1 pattern</option>
+        <option value="15">Color 1 which is not 2^n and divisible by 5 in 1-3-1-x-1-3-1 pattern</option>
+        <!-- numbers / value are in random order according to future modifications that we are making -->
+    </select>
+    <p title="This option shows number of matches found using any specific filteration method" ><b>Filter Matches found </b>: <input type="number" disabled name="pattern_found" id="pattern_found"></p>
+    <p title="This lets you remove rows which are not part of the filtered way/pattern. use values 1 or 0" ><b>Remove Unfiltered [0/1]</b><input max="1" min="0" type="number" oninput="display_only_colored()" name="display_only_colored" id="display_only_colored"></p>
+    <table title="Filteration Methods; After Calculation use this to filter results" id="column_analyzer">
+        <tr>
+            <th>S.no <input type="number" oninput="sno()" name="sno" id="sno"></th>
+            <th>Number[ n ] <input type="number" oninput="numb()" name="numb" id="numb"></th>
+            <th>Total Iterations <input type="number" oninput="iterations_fun()" name="iterations" id="iterations"></th>
+        </tr>
+        <tr>
+            <th>Odd Iterations [3n + 1] <input type="number" oninput="odd_it()" name="odd_it" id="odd_it"></th>
+            <th>Even Iterations [n / 2] <input type="number" oninput="even_it()" name="even_it" id="even_it"></th>
+            <th>First Below given number(Step) <input type="number" oninput="first_below_step_i()" name="first_below" id="first_below_step"></th>
+        </tr>
+        <tr>
+            <th>First Below given number(Value) <input type="number" oninput="first_below_value()" name="first_below" id="first_below_value"></th>
+            <th class="head_all_iterations">All Iterations Sum<input type="number" oninput="all_it()" name="all_it" id="all_it"></th>
+            <th>Steps format in 4n+3 iterations<input type="number" oninput="step_form_4n_3()" name="step_form_4n_3" id="step_form_4n_3"></th>
+        </tr>
+        <tr>
+            <th>Type [only the additive term]<input type="number" oninput="type_colored()" name="type_colored" id="type_colored"></th>
+        </tr>
+    </table>
+    <br/>
+    <hr/>
+    <br/>
+    <table id="main">
+    </table>
+<script src="script.js"></script>
+</body>
+
+</html>
